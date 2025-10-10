@@ -1,0 +1,110 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "mixers",
+        "signals",
+        "hydraulic",
+        "controls"
+      ]
+    },
+    "plotnost": {
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[]",
+      "options": [
+        "Двойное торцовое:double",
+        "Одинарное торцовое:single"
+      ]
+    },
+    "rotary": {
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[\"auto\", \"manual\", \"fixed\"]",
+      "options": [
+        "Автоматический:auto",
+        "Ручной:manual",
+        "Неповоротный:fixed"
+      ]
+    },
+    "dvigatel": {
+      "type": "customField",
+      "customField": "plugin::multi-select.multi-select",
+      "default": "[\"power-22\", \"power-11\", \"power-75\", \"power-55\"]",
+      "options": [
+        "22квт:power-22",
+        "11кВт:power-11",
+        "7.5кВт:power-75",
+        "5.5кВт:power-55"
+      ]
+    },
+    "short_dedcription": {
+      "type": "blocks"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "specs": {
+      "type": "blocks"
+    },
+    "Document": {
+      "type": "component",
+      "component": "layout.documents",
+      "repeatable": true
+    },
+    "Feature": {
+      "type": "component",
+      "component": "layout.option",
+      "repeatable": true
+    },
+    "variant": {
+      "type": "component",
+      "component": "layout.variant",
+      "repeatable": true
+    },
+    "spec_item": {
+      "type": "component",
+      "component": "layout.spec-item",
+      "repeatable": true
+    },
+    "schema": {
+      "type": "component",
+      "component": "layout.schema",
+      "repeatable": false
+    }
+  }
+}
