@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_layout_schemata",
+  "info": {
+    "displayName": "schema"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

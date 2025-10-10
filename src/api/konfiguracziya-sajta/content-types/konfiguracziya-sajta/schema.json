@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "konfiguracziya_sajtas",
+  "info": {
+    "singularName": "konfiguracziya-sajta",
+    "pluralName": "konfiguracziya-sajtas",
+    "displayName": "Конфигурация сайта"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "website_name": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "component",
+      "component": "logo.logos",
+      "repeatable": false
+    },
+    "slogan": {
+      "type": "string"
+    },
+    "Phones": {
+      "type": "component",
+      "component": "contacts.phones",
+      "repeatable": true
+    },
+    "address": {
+      "type": "string"
+    },
+    "emails": {
+      "type": "component",
+      "component": "contacts.emails",
+      "repeatable": true
+    },
+    "Social": {
+      "type": "component",
+      "component": "contacts.social",
+      "repeatable": true
+    }
+  }
+}

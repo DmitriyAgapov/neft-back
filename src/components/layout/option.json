@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_layout_options",
+  "info": {
+    "displayName": "Option"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

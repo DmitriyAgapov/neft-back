@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_layout_sections",
+  "info": {
+    "displayName": "Section"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "before_screen",
+        "screen",
+        "catalog",
+        "useourproducts",
+        "events"
+      ]
+    }
+  },
+  "config": {}
+}

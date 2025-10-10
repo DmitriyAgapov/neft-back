@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_layout_vaiant_items",
+  "info": {
+    "displayName": "vaiant_item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

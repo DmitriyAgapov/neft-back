@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layout_spec_items",
+  "info": {
+    "displayName": "spec_item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "blocks"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

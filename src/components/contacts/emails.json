@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_contacts_emails",
+  "info": {
+    "displayName": "Emails"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    }
+  },
+  "config": {}
+}

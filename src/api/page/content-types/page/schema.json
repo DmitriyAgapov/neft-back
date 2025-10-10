@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Pages"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "mixers",
+        "signals",
+        "hydraulic",
+        "controls"
+      ]
+    },
+    "short_dedcription": {
+      "type": "blocks"
+    },
+    "variant": {
+      "type": "component",
+      "component": "layout.variant",
+      "repeatable": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "Document": {
+      "type": "component",
+      "component": "layout.documents",
+      "repeatable": true
+    },
+    "Feature": {
+      "type": "component",
+      "component": "layout.option",
+      "repeatable": true
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layout_variants",
+  "info": {
+    "displayName": "variant"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "item_title": {
+      "type": "component",
+      "component": "layout.vaiant-item",
+      "repeatable": true
+    },
+    "description": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

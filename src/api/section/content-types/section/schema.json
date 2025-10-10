@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sections",
+  "info": {
+    "singularName": "section",
+    "pluralName": "sections",
+    "displayName": "Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "before_screen",
+        "screen",
+        "catalog",
+        "useourproducts",
+        "events",
+        "form"
+      ]
+    },
+    "order": {
+      "type": "integer"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "cards": {
+      "type": "dynamiczone",
+      "components": [
+        "layout.card"
+      ]
+    },
+    "link": {
+      "type": "component",
+      "component": "layout.link",
+      "repeatable": false
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
