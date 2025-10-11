@@ -34,7 +34,8 @@
     "cards": {
       "type": "dynamiczone",
       "components": [
-        "layout.card"
+        "layout.card",
+        "layout.gallery"
       ]
     },
     "link": {

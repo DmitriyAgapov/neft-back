@@ -68,6 +68,17 @@ export interface LayoutFeatures extends Struct.ComponentSchema {
   attributes: {};
 }
 
+export interface LayoutGallery extends Struct.ComponentSchema {
+  collectionName: 'components_layout_galleries';
+  info: {
+    displayName: 'Gallery';
+  };
+  attributes: {
+    gallery: Schema.Attribute.Media<'images', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface LayoutLink extends Struct.ComponentSchema {
   collectionName: 'components_layout_links';
   info: {
@@ -183,6 +194,7 @@ declare module '@strapi/strapi' {
       'layout.card': LayoutCard;
       'layout.documents': LayoutDocuments;
       'layout.features': LayoutFeatures;
+      'layout.gallery': LayoutGallery;
       'layout.link': LayoutLink;
       'layout.meta': LayoutMeta;
       'layout.option': LayoutOption;
