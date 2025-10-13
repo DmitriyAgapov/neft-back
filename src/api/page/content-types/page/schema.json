@@ -4,7 +4,7 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Pages"
+    "displayName": "Страницы"
   },
   "options": {
     "draftAndPublish": true
@@ -14,40 +14,21 @@
     "title": {
       "type": "string"
     },
-    "slug": {
+    "url": {
       "type": "uid",
-      "targetField": "",
+      "targetField": "title",
       "required": true
-    },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "mixers",
-        "signals",
-        "hydraulic",
-        "controls"
-      ]
     },
     "short_dedcription": {
       "type": "blocks"
     },
-    "variant": {
-      "type": "component",
-      "component": "layout.variant",
-      "repeatable": true
-    },
     "description": {
       "type": "blocks"
     },
-    "Document": {
-      "type": "component",
-      "component": "layout.documents",
-      "repeatable": true
-    },
-    "Feature": {
-      "type": "component",
-      "component": "layout.option",
-      "repeatable": true
+    "sections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::section.section"
     }
   }
 }

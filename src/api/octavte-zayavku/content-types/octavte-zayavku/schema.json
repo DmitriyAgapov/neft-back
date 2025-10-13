@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "octavte_zayavkus",
+  "info": {
+    "singularName": "octavte-zayavku",
+    "pluralName": "octavte-zayavkus",
+    "displayName": "Оcтавьте заявку"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "purpose": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "mixers",
+        "controls",
+        "signals",
+        "hydraulic-tools",
+        "question"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "company": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "message": {
+      "type": "text"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    }
+  }
+}

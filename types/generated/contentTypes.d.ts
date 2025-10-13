@@ -413,7 +413,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
-    displayName: 'Category';
+    displayName: '\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u0438';
     pluralName: 'categories';
     singularName: 'category';
   };
@@ -457,7 +457,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
-    displayName: 'event';
+    displayName: '\u0421\u043E\u0431\u044B\u0442\u0438\u044F';
     pluralName: 'events';
     singularName: 'event';
   };
@@ -520,10 +520,48 @@ export interface ApiKonfiguracziyaSajtaKonfiguracziyaSajta
   };
 }
 
+export interface ApiOctavteZayavkuOctavteZayavku
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'octavte_zayavkus';
+  info: {
+    displayName: '\u041Ec\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443';
+    pluralName: 'octavte-zayavkus';
+    singularName: 'octavte-zayavku';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email;
+    file: Schema.Attribute.Media<'files' | 'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::octavte-zayavku.octavte-zayavku'
+    > &
+      Schema.Attribute.Private;
+    message: Schema.Attribute.Text;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    purpose: Schema.Attribute.Enumeration<
+      ['mixers', 'controls', 'signals', 'hydraulic-tools', 'question']
+    > &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
-    displayName: 'Pages';
+    displayName: '\u0421\u0442\u0440\u0430\u043D\u0438\u0446\u044B';
     pluralName: 'pages';
     singularName: 'page';
   };
@@ -535,22 +573,17 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Blocks;
-    Document: Schema.Attribute.Component<'layout.documents', true>;
-    Feature: Schema.Attribute.Component<'layout.option', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::page.page'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.Relation<'oneToMany', 'api::section.section'>;
     short_dedcription: Schema.Attribute.Blocks;
-    slug: Schema.Attribute.UID<''> & Schema.Attribute.Required;
     title: Schema.Attribute.String;
-    type: Schema.Attribute.Enumeration<
-      ['mixers', 'signals', 'hydraulic', 'controls']
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    variant: Schema.Attribute.Component<'layout.variant', true>;
+    url: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
   };
 }
 
@@ -558,7 +591,7 @@ export interface ApiProductHydraulicProductHydraulic
   extends Struct.CollectionTypeSchema {
   collectionName: 'product_hydraulics';
   info: {
-    displayName: 'ProductHydraulic';
+    displayName: '\u041F\u0440\u043E\u0434\u0443\u043A\u0442\u044B - \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u044B';
     pluralName: 'product-hydraulics';
     singularName: 'product-hydraulic';
   };
@@ -593,7 +626,7 @@ export interface ApiProductHydraulicProductHydraulic
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
-    displayName: 'Product';
+    displayName: '\u041F\u0440\u043E\u0434\u0443\u043A\u0442\u044B';
     pluralName: 'products';
     singularName: 'product';
   };
@@ -665,7 +698,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
 export interface ApiSectionSection extends Struct.CollectionTypeSchema {
   collectionName: 'sections';
   info: {
-    displayName: 'Section';
+    displayName: '\u0421\u0435\u043A\u0446\u0438\u0438';
     pluralName: 'sections';
     singularName: 'section';
   };
@@ -691,9 +724,23 @@ export interface ApiSectionSection extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
+    short_dedcription: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<
-      ['before_screen', 'screen', 'catalog', 'useourproducts', 'events', 'form']
+      [
+        'before_screen',
+        'screen',
+        'catalog',
+        'useourproducts',
+        'events',
+        'form',
+        'page',
+        'page_no_title',
+        'page_form',
+        'page_event',
+        'about',
+        'our_manufacture',
+      ]
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1214,6 +1261,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::event.event': ApiEventEvent;
       'api::konfiguracziya-sajta.konfiguracziya-sajta': ApiKonfiguracziyaSajtaKonfiguracziyaSajta;
+      'api::octavte-zayavku.octavte-zayavku': ApiOctavteZayavkuOctavteZayavku;
       'api::page.page': ApiPagePage;
       'api::product-hydraulic.product-hydraulic': ApiProductHydraulicProductHydraulic;
       'api::product.product': ApiProductProduct;

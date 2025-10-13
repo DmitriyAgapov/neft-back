@@ -4,7 +4,7 @@
   "info": {
     "singularName": "section",
     "pluralName": "sections",
-    "displayName": "Section"
+    "displayName": "Секции"
   },
   "options": {
     "draftAndPublish": true
@@ -22,11 +22,20 @@
         "catalog",
         "useourproducts",
         "events",
-        "form"
+        "form",
+        "page",
+        "page_no_title",
+        "page_form",
+        "page_event",
+        "about",
+        "our_manufacture"
       ]
     },
     "order": {
       "type": "integer"
+    },
+    "short_dedcription": {
+      "type": "blocks"
     },
     "description": {
       "type": "blocks"
