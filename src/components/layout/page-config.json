@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_layout_page_configs",
+  "info": {
+    "displayName": "page_config"
+  },
+  "options": {},
+  "attributes": {
+    "isTitleHidden": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "isShortDescriptionHidden": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "isDescriptionHidden": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "config": {}
+}
