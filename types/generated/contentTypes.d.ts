@@ -476,6 +476,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     text: Schema.Attribute.Blocks;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -578,6 +579,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     sections: Schema.Attribute.Relation<'oneToMany', 'api::section.section'>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    settings: Schema.Attribute.Component<'layout.page-config', false> &
+      Schema.Attribute.Required;
     short_dedcription: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -613,6 +617,7 @@ export interface ApiProductHydraulicProductHydraulic
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     short_dedcription: Schema.Attribute.Blocks;
     spec_item: Schema.Attribute.Component<'layout.spec-item', true>;
     specs: Schema.Attribute.Blocks;
@@ -680,6 +685,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       > &
       Schema.Attribute.DefaultTo<'["auto", "manual", "fixed"]'>;
     schema: Schema.Attribute.Component<'layout.schema', false>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     short_dedcription: Schema.Attribute.Blocks;
     slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     spec_item: Schema.Attribute.Component<'layout.spec-item', true>;
@@ -724,6 +730,7 @@ export interface ApiSectionSection extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
+    settings: Schema.Attribute.Component<'layout.page-config', false>;
     short_dedcription: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<

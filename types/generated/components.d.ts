@@ -113,6 +113,24 @@ export interface LayoutOption extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutPageConfig extends Struct.ComponentSchema {
+  collectionName: 'components_layout_page_configs';
+  info: {
+    displayName: 'page_config';
+  };
+  attributes: {
+    isDescriptionHidden: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    isShortDescriptionHidden: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    isTitleHidden: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface LayoutSchema extends Struct.ComponentSchema {
   collectionName: 'components_layout_schemata';
   info: {
@@ -185,6 +203,44 @@ export interface LogoLogos extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedOpenGraph extends Struct.ComponentSchema {
+  collectionName: 'components_shared_open_graphs';
+  info: {
+    displayName: 'openGraph';
+    icon: 'project-diagram';
+  };
+  attributes: {
+    ogDescription: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 200;
+      }>;
+    ogImage: Schema.Attribute.Media<'images'>;
+    ogTitle: Schema.Attribute.String & Schema.Attribute.DefaultTo<'title'>;
+    ogType: Schema.Attribute.String;
+    ogUrl: Schema.Attribute.String;
+  };
+}
+
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_seos';
+  info: {
+    displayName: 'seo';
+    icon: 'search';
+  };
+  attributes: {
+    canonicalURL: Schema.Attribute.String;
+    keywords: Schema.Attribute.Text;
+    metaDescription: Schema.Attribute.String & Schema.Attribute.DefaultTo<'-'>;
+    metaImage: Schema.Attribute.Media<'images'>;
+    metaRobots: Schema.Attribute.String;
+    metaTitle: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'\u0411\u0435\u0437 \u0437\u0430\u0433\u043E\u043B\u043E\u0432\u043A\u0430'>;
+    metaViewport: Schema.Attribute.String;
+    openGraph: Schema.Attribute.Component<'shared.open-graph', false>;
+    structuredData: Schema.Attribute.JSON;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -198,12 +254,15 @@ declare module '@strapi/strapi' {
       'layout.link': LayoutLink;
       'layout.meta': LayoutMeta;
       'layout.option': LayoutOption;
+      'layout.page-config': LayoutPageConfig;
       'layout.schema': LayoutSchema;
       'layout.section': LayoutSection;
       'layout.spec-item': LayoutSpecItem;
       'layout.vaiant-item': LayoutVaiantItem;
       'layout.variant': LayoutVariant;
       'logo.logos': LogoLogos;
+      'shared.open-graph': SharedOpenGraph;
+      'shared.seo': SharedSeo;
     }
   }
 }

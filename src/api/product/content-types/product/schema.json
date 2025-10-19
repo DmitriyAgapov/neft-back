@@ -105,6 +105,12 @@
       "type": "component",
       "component": "layout.schema",
       "repeatable": false
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false,
+      "required": false
     }
   }
 }

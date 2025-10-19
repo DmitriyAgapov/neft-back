@@ -54,6 +54,11 @@
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "product_hydraulics"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }

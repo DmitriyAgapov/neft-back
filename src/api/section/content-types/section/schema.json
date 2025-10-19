@@ -61,6 +61,11 @@
         "videos",
         "audios"
       ]
+    },
+    "settings": {
+      "type": "component",
+      "component": "layout.page-config",
+      "repeatable": false
     }
   }
 }

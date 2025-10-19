@@ -29,6 +29,17 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::section.section"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    },
+    "settings": {
+      "type": "component",
+      "component": "layout.page-config",
+      "repeatable": false,
+      "required": true
     }
   }
 }

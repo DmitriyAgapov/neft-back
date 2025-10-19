@@ -44,6 +44,11 @@
     "create_date": {
       "type": "date",
       "required": true
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
     }
   }
 }
