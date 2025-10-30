@@ -1,0 +1,9 @@
+[2025-10-19 18:48:04.064] warn: (Schema Integrity) api::event.event.attributes.seo does not exist on destination
+[2025-10-19 18:48:04.065] warn: (Schema Integrity) api::page.page.attributes.seo does not exist on destination
+[2025-10-19 18:48:04.065] warn: (Schema Integrity) api::page.page.attributes.settings does not exist on destination
+[2025-10-19 18:48:04.065] warn: (Schema Integrity) api::product.product.attributes.seo does not exist on destination
+[2025-10-19 18:48:04.066] warn: (Schema Integrity) api::product-hydraulic.product-hydraulic.attributes.seo does not exist on destination
+[2025-10-19 18:48:04.066] warn: (Schema Integrity) api::section.section.attributes.settings does not exist on destination
+[2025-10-19 18:48:04.066] warn: (Schema Integrity) shared.seo does not exist on destination
+[2025-10-19 18:48:04.066] warn: (Schema Integrity) shared.open-graph does not exist on destination
+[2025-10-19 18:48:04.066] warn: (Schema Integrity) layout.page-config does not exist on destination

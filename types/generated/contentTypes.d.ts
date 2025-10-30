@@ -441,11 +441,16 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       'api::category.category'
     > &
       Schema.Attribute.Private;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
     product_hydraulics: Schema.Attribute.Relation<
       'oneToMany',
       'api::product-hydraulic.product-hydraulic'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.Required;
     short_dedcription: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

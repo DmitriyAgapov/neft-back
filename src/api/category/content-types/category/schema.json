@@ -52,6 +52,17 @@
       "relation": "oneToMany",
       "target": "api::product-hydraulic.product-hydraulic",
       "mappedBy": "category"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false,
+      "required": true
+    },
+    "order": {
+      "type": "integer",
+      "required": true,
+      "default": 0
     }
   }
 }
