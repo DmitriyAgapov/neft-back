@@ -3,3 +3,4 @@
 /.strapi/
 /.env
 /yarn.lock
+/public/public.zip
