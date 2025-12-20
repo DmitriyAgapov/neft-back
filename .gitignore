@@ -3,4 +3,6 @@
 /.strapi/
 /.env
 /yarn.lock
+/.idea/
+/bu/
 /public/public.zip
