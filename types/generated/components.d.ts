@@ -131,6 +131,17 @@ export interface LayoutPageConfig extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutPdfDocument extends Struct.ComponentSchema {
+  collectionName: 'components_layout_pdf_documents';
+  info: {
+    displayName: 'pdf_document';
+  };
+  attributes: {
+    file: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface LayoutSchema extends Struct.ComponentSchema {
   collectionName: 'components_layout_schemata';
   info: {
@@ -255,6 +266,7 @@ declare module '@strapi/strapi' {
       'layout.meta': LayoutMeta;
       'layout.option': LayoutOption;
       'layout.page-config': LayoutPageConfig;
+      'layout.pdf-document': LayoutPdfDocument;
       'layout.schema': LayoutSchema;
       'layout.section': LayoutSection;
       'layout.spec-item': LayoutSpecItem;

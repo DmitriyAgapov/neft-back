@@ -435,6 +435,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Blocks;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image_full: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -453,6 +454,36 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required;
     short_dedcription: Schema.Attribute.Blocks;
     title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDokumentyDokumenty extends Struct.CollectionTypeSchema {
+  collectionName: 'dokumenties';
+  info: {
+    displayName: '\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B';
+    pluralName: 'dokumenties';
+    singularName: 'dokumenty';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    file: Schema.Attribute.Media<'files' | 'images'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dokumenty.dokumenty'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -488,6 +519,41 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     url: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiKategoriiDokumentovKategoriiDokumentov
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'kategorii_dokumentovs';
+  info: {
+    displayName: '\u041A\u0430\u0442\u0435\u0433\u043E\u0440\u0438\u0438 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u043E\u0432';
+    pluralName: 'kategorii-dokumentovs';
+    singularName: 'kategorii-dokumentov';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    dokumenties: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dokumenty.dokumenty'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kategorii-dokumentov.kategorii-dokumentov'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -612,15 +678,26 @@ export interface ApiProductHydraulicProductHydraulic
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dokumenties: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dokumenty.dokumenty'
+    >;
     gallery: Schema.Attribute.Media<'files' | 'images', true>;
     hydraulic_slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    image_full: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::product-hydraulic.product-hydraulic'
     > &
       Schema.Attribute.Private;
+    produkty_instrumenties: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::product-hydraulic.product-hydraulic'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     short_dedcription: Schema.Attribute.Blocks;
@@ -648,7 +725,10 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Blocks;
-    Document: Schema.Attribute.Component<'layout.documents', true>;
+    dokumenties: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::dokumenty.dokumenty'
+    >;
     dvigatel: Schema.Attribute.JSON &
       Schema.Attribute.CustomField<
         'plugin::multi-select.multi-select',
@@ -726,6 +806,10 @@ export interface ApiSectionSection extends Struct.CollectionTypeSchema {
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
+    kategorii_dokumentovs: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kategorii-dokumentov.kategorii-dokumentov'
+    >;
     link: Schema.Attribute.Component<'layout.link', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -752,6 +836,7 @@ export interface ApiSectionSection extends Struct.CollectionTypeSchema {
         'page_event',
         'about',
         'our_manufacture',
+        'docs',
       ]
     >;
     updatedAt: Schema.Attribute.DateTime;
@@ -1271,7 +1356,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::category.category': ApiCategoryCategory;
+      'api::dokumenty.dokumenty': ApiDokumentyDokumenty;
       'api::event.event': ApiEventEvent;
+      'api::kategorii-dokumentov.kategorii-dokumentov': ApiKategoriiDokumentovKategoriiDokumentov;
       'api::konfiguracziya-sajta.konfiguracziya-sajta': ApiKonfiguracziyaSajtaKonfiguracziyaSajta;
       'api::octavte-zayavku.octavte-zayavku': ApiOctavteZayavkuOctavteZayavku;
       'api::page.page': ApiPagePage;

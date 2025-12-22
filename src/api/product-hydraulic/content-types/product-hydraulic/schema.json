@@ -49,6 +49,16 @@
         "audios"
       ]
     },
+    "image_full": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
     "category": {
       "type": "relation",
       "relation": "manyToOne",
@@ -59,6 +69,16 @@
       "type": "component",
       "component": "shared.seo",
       "repeatable": false
+    },
+    "produkty_instrumenties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-hydraulic.product-hydraulic"
+    },
+    "dokumenties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dokumenty.dokumenty"
     }
   }
 }

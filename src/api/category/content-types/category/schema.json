@@ -35,6 +35,13 @@
         "audios"
       ]
     },
+    "image_full": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
     "child_categories": {
       "type": "relation",
       "relation": "oneToMany",

@@ -28,7 +28,8 @@
         "page_form",
         "page_event",
         "about",
-        "our_manufacture"
+        "our_manufacture",
+        "docs"
       ]
     },
     "order": {
@@ -66,6 +67,11 @@
       "type": "component",
       "component": "layout.page-config",
       "repeatable": false
+    },
+    "kategorii_dokumentovs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kategorii-dokumentov.kategorii-dokumentov"
     }
   }
 }

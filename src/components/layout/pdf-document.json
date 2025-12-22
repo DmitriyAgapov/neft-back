@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_layout_pdf_documents",
+  "info": {
+    "displayName": "pdf_document"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  },
+  "config": {}
+}

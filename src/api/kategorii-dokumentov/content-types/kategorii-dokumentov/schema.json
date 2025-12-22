@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kategorii_dokumentovs",
+  "info": {
+    "singularName": "kategorii-dokumentov",
+    "pluralName": "kategorii-dokumentovs",
+    "displayName": "Категории документов"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "dokumenties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dokumenty.dokumenty"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

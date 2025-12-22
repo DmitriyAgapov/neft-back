@@ -81,15 +81,15 @@
     "specs": {
       "type": "blocks"
     },
-    "Document": {
-      "type": "component",
-      "component": "layout.documents",
-      "repeatable": true
-    },
     "Feature": {
       "type": "component",
       "component": "layout.option",
       "repeatable": true
+    },
+    "dokumenties": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dokumenty.dokumenty"
     },
     "variant": {
       "type": "component",
